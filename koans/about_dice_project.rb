@@ -4,18 +4,23 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 #
 #
 class DiceSet
-  attr_accessor :values
+
 
   def initialize
-    values = []
+    @values = []
   end
 
 
   def roll(diceCount)
-    (1..diceCount + 1).each { |dice|
-      self.values.
+    @values = []
+    (1..diceCount).each { |i|
+      @values.push(rand(diceCount) + 1)
     }
-    return values
+    return @values
+  end
+
+  def values
+     @values
   end
 end
 
